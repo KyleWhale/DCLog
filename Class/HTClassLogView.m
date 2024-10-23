@@ -63,13 +63,15 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.logTextView.frame = CGRectMake(0, 64.0, self.bounds.size.width, self.bounds.size.height-64.0);
     
-    self.segmentControl.frame = CGRectMake(16.0, 0, 100.0, 30.0);
-    self.segmentControl.center= CGPointMake(self.segmentControl.center.x, 42.0);
+    CGFloat height = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    self.logTextView.frame = CGRectMake(0, height + 44, self.bounds.size.width, self.bounds.size.height - height - 44);
+    
+    self.segmentControl.frame = CGRectMake(16.0, 0, 150.0, 30.0);
+    self.segmentControl.center = CGPointMake(self.segmentControl.center.x, height + 22);
     
     self.cleanButton.frame = CGRectMake(self.bounds.size.width-16-50, 0, 50.0, 30.0);
-    self.cleanButton.center = CGPointMake(self.cleanButton.center.x, 42.0);
+    self.cleanButton.center = CGPointMake(self.cleanButton.center.x, height + 22);
 }
 
 - (void)cleanButtonClick {

@@ -100,7 +100,7 @@ void UncaughtExceptionHandler(NSException *exception) {
     NSLog(@"SIMULATOR DEVICE");
 #else
     freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout); //c printf
-    freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr); //oc  NSLog
+    FILE *file = freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr); //oc  NSLog
 #endif
     
 }

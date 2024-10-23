@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "HTClassLog.h"
-
 
 @interface AppDelegate ()
 
@@ -18,8 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [HTClassLog setLogViewEnabled:YES];
     
     return YES;
 }

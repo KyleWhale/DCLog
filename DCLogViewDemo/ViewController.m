@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [HTClassLog setLogViewEnabled:YES];
+
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(giveLog) userInfo:nil repeats:YES];
     
 }
@@ -35,7 +37,7 @@
 
 - (void)giveLog {
     
-    DLog(@"NSTimer");
+    DLog(@"%.0ff", [[NSDate date] timeIntervalSince1970]);
 }
 
 

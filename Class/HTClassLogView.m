@@ -30,7 +30,7 @@
     self.logTextView = [[UITextView alloc] init];
     self.logTextView.backgroundColor = [UIColor colorWithRed:39/255.0 green:40/255.0 blue:34/255.0 alpha:1.0];
     self.logTextView.textColor = [UIColor whiteColor];
-    self.logTextView.font = [UIFont systemFontOfSize:14.0];
+    self.logTextView.font = [UIFont systemFontOfSize:12.0];
     self.logTextView.editable = NO;
     self.logTextView.layoutManager.allowsNonContiguousLayout = NO;
     [self addSubview:self.logTextView];

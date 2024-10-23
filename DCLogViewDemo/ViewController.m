@@ -10,12 +10,11 @@
 #import "HTClassLog.h"
 #import "HTClassLogView.h"
 
-#if DEBUG
-#define DLog(FORMAT, ...)  NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] );
-#else
-#define DLog(FORMAT, ...) nil
-#endif
-
+//#if DEBUG
+//#define DLog(FORMAT, ...)  NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] );
+//#else
+//#define DLog(FORMAT, ...) nil
+//#endif
 
 @interface ViewController ()
 
@@ -28,8 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [HTClassLog setLogViewEnabled:YES];
-
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(giveLog) userInfo:nil repeats:YES];
     
 }
@@ -37,7 +34,7 @@
 
 - (void)giveLog {
     
-    DLog(@"%.0ff", [[NSDate date] timeIntervalSince1970]);
+    HTLog(@"%.0ff", [[NSDate date] timeIntervalSince1970]);
 }
 
 
@@ -50,7 +47,7 @@
 
 - (IBAction)logButtonClick:(id)sender {
     
-    DLog(@"logButtonClick");
+    HTLog(@"logButtonClick");
 }
 
 @end

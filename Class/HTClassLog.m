@@ -19,41 +19,41 @@
 
 @property (nonatomic, assign) NSInteger index;
 
-@property(nonatomic, assign) BOOL logViewEnabled;
-
-
 @end
 
 @implementation HTClassLog
 
-+ (void)setLogViewEnabled:(BOOL)logViewEnabled {
-
-    [HTClassLog shareLog].logViewEnabled = logViewEnabled;
++ (void)writeLog:(NSString *)logMessage {
     
-    [HTClassLog startRecord];
+    NSLog(@"%@", logMessage);
+
+    NSString *filePath = [[HTClassLog shareLog] loadPathWithName:LogFileName];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if (![fileManager fileExistsAtPath:filePath]) {
+        [logMessage writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    } else {
+        NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+        [fileHandle seekToEndOfFile];
+        [fileHandle writeData:[[NSString stringWithFormat:@"%@%@", @"\n", logMessage] dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle closeFile];
+    }
 }
 
-+ (void)startRecord {
-    if ([HTClassLog shareLog].logViewEnabled == YES) {
-
+- (void)startRecord {
 #if DEBUG
-        NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
-        [[HTClassLog shareLog] saveLogInfo];
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+    [self resetLogInfo];
 #else
 #endif
-    }
 }
 
 + (void)changeVisible {
-    
-    if ([HTClassLog shareLog].logViewEnabled == YES) {
-        
 #if DEBUG
-        HTClassLog *log = [HTClassLog shareLog];
-        log.time ? [log hideLogView] : [log showLogView];
+    HTClassLog *log = [HTClassLog shareLog];
+    log.time ? [log hideLogView] : [log showLogView];
 #else
 #endif
-    }
 }
 
 
@@ -62,6 +62,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         log = [[HTClassLog alloc] init];
+        [log startRecord];
         [log readCarshInfo];
     });
     return log;
@@ -91,18 +92,10 @@ void UncaughtExceptionHandler(NSException *exception) {
     [[HTClassLog shareLog] saveCrashInfo:crashInfo];
 }
 
-- (void)saveLogInfo {
+- (void)resetLogInfo {
     
     NSString *logPath = [self loadPathWithName:LogFileName];
-    [[NSFileManager defaultManager]removeItemAtPath:logPath error:nil];
-    
-#if TARGET_IPHONE_SIMULATOR
-    NSLog(@"SIMULATOR DEVICE");
-#else
-    freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout); //c printf
-    FILE *file = freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr); //oc  NSLog
-#endif
-    
+    [[NSFileManager defaultManager] removeItemAtPath:logPath error:nil];
 }
 
 - (NSString *)readLogInfo {
@@ -118,7 +111,7 @@ void UncaughtExceptionHandler(NSException *exception) {
     
     if (self.crashInfoString) {
         self.crashInfoString = [self.crashInfoString stringByAppendingString:crashInfo];
-    }else {
+    } else {
         self.crashInfoString = crashInfo;
     }
     
@@ -153,10 +146,10 @@ void UncaughtExceptionHandler(NSException *exception) {
     
     self.logView.CleanButtonIndexBlock = ^(NSInteger index) {
         if (index == 0) {
-            [[NSFileManager defaultManager]removeItemAtPath:[weakSelf loadPathWithName:LogFileName] error:nil];
-            [weakSelf saveLogInfo];
-        }else if (index == 1) {
-            [[NSFileManager defaultManager]removeItemAtPath:[weakSelf loadPathWithName:CarshFileName] error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:[weakSelf loadPathWithName:LogFileName] error:nil];
+            [weakSelf resetLogInfo];
+        } else if (index == 1) {
+            [[NSFileManager defaultManager] removeItemAtPath:[weakSelf loadPathWithName:CarshFileName] error:nil];
         }
     };
 }
@@ -166,7 +159,7 @@ void UncaughtExceptionHandler(NSException *exception) {
     
     if (self.index == 0) {
         [self.logView updateLog:[self readLogInfo]];
-    }else if (self.index == 1) {
+    } else if (self.index == 1) {
         [self.logView updateLog:[self readCarshInfo]];
     }
 }

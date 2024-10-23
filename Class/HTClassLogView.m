@@ -64,7 +64,10 @@
 }
 
 - (void)updateLog:(NSString *)logText {
-    
+
+    if ([self.currentLogText isEqualToString:logText] && self.filterText.length == 0) {
+        return;
+    }
     self.currentLogText = logText;
     if (self.filterText && self.filterText.length > 0) {
         logText = [logText stringByReplacingOccurrencesOfString:@"\r" withString:@""];

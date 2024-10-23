@@ -4,7 +4,7 @@
 
 #if DEBUG
 #define HTLog(FORMAT, ...)  { \
-    NSString *logMessage = [NSString stringWithFormat:@"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(FORMAT), ##__VA_ARGS__]]; \
+    NSString *logMessage = [NSString stringWithFormat:@"%@:(%d) %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(FORMAT), ##__VA_ARGS__]]; \
     [HTClassLog writeLog:logMessage]; \
 }
 #else

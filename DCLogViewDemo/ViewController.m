@@ -1,14 +1,14 @@
 //
 //  ViewController.m
-//  DCLogViewDemo
+//  HTClassLogViewDemo
 //
 //  Created by DarielChen on 16/12/30.
 //  Copyright © 2016年 DarielChen. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "DCLog.h"
-#import "DCLogView.h"
+#import "HTClassLog.h"
+#import "HTClassLogView.h"
 
 #if DEBUG
 #define DLog(FORMAT, ...)  NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] );
@@ -19,7 +19,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) DCLogView *logView;
+@property (nonatomic, strong) HTClassLogView *logView;
 
 @end
 

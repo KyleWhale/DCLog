@@ -1,25 +1,19 @@
-//
-//  DCLog.m
-//  DCLogViewDemo
-//
-//  Created by DarielChen https://github.com/DarielChen/DCLog
-//  Copyright © 2016年 DarielChen. All rights reserved.
-//
-
-#import "DCLog.h"
-#import "DCLogView.h"
 
 
-#define LogFileName @"DCLogInfo.log"
-#define CarshFileName @"DCCrashInfo.log"
+#import "HTClassLog.h"
+#import "HTClassLogView.h"
 
-#define DCWeakSelf __weak typeof(self) weakSelf = self;
 
-@interface DCLog()
+#define LogFileName @"HTClassLogInfo.log"
+#define CarshFileName @"HTClassCrashInfo.log"
+
+#define HTClassWeakSelf __weak typeof(self) weakSelf = self;
+
+@interface HTClassLog()
 
 @property (nonatomic, copy) NSString *crashInfoString;
 
-@property (nonatomic, strong) DCLogView *logView;
+@property (nonatomic, strong) HTClassLogView *logView;
 
 @property (nonatomic, strong) NSTimer *time;
 
@@ -30,21 +24,21 @@
 
 @end
 
-@implementation DCLog
+@implementation HTClassLog
 
 + (void)setLogViewEnabled:(BOOL)logViewEnabled {
 
-    [DCLog shareLog].logViewEnabled = logViewEnabled;
+    [HTClassLog shareLog].logViewEnabled = logViewEnabled;
     
-    [DCLog startRecord];
+    [HTClassLog startRecord];
 }
 
 + (void)startRecord {
-    if ([DCLog shareLog].logViewEnabled == YES) {
+    if ([HTClassLog shareLog].logViewEnabled == YES) {
 
 #if DEBUG
         NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
-        [[DCLog shareLog] saveLogInfo];
+        [[HTClassLog shareLog] saveLogInfo];
 #else
 #endif
     }
@@ -52,10 +46,10 @@
 
 + (void)changeVisible {
     
-    if ([DCLog shareLog].logViewEnabled == YES) {
+    if ([HTClassLog shareLog].logViewEnabled == YES) {
         
 #if DEBUG
-        DCLog *log = [DCLog shareLog];
+        HTClassLog *log = [HTClassLog shareLog];
         log.time ? [log hideLogView] : [log showLogView];
 #else
 #endif
@@ -64,19 +58,19 @@
 
 
 + (instancetype)shareLog {
-    static DCLog *log = nil;
+    static HTClassLog *log = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        log = [[DCLog alloc] init];
+        log = [[HTClassLog alloc] init];
         [log readCarshInfo];
     });
     return log;
 }
 
-- (DCLogView *)logView {
+- (HTClassLogView *)logView {
     
     if (!_logView) {
-        _logView = [[DCLogView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _logView = [[HTClassLogView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _logView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         [[UIApplication sharedApplication].keyWindow addSubview:self.logView];
         
@@ -92,9 +86,9 @@ void UncaughtExceptionHandler(NSException *exception) {
     NSString *reason = [exception reason];
     NSString *name = [exception name];
     
-    NSString *crashInfo = [NSString stringWithFormat:@"Crash date: %@ \nNexception type: %@ \nCrash reason: %@ \nStack symbol info: %@ \n",[[DCLog shareLog] getCurrentDate], name, reason, arr];
+    NSString *crashInfo = [NSString stringWithFormat:@"Crash date: %@ \nNexception type: %@ \nCrash reason: %@ \nStack symbol info: %@ \n",[[HTClassLog shareLog] getCurrentDate], name, reason, arr];
     
-    [[DCLog shareLog] saveCrashInfo:crashInfo];
+    [[HTClassLog shareLog] saveCrashInfo:crashInfo];
 }
 
 - (void)saveLogInfo {
@@ -152,7 +146,7 @@ void UncaughtExceptionHandler(NSException *exception) {
     self.time = [NSTimer scheduledTimerWithTimeInterval:0.35 target:self selector:@selector(refreshLogText) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.time forMode:NSRunLoopCommonModes];
     
-    DCWeakSelf;
+    HTClassWeakSelf;
     self.logView.indexBlock = ^(NSInteger index) {
         weakSelf.index = index;
     };

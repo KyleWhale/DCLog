@@ -1,14 +1,8 @@
-//
-//  DCLogView.m
-//  DCLogViewDemo
-//
-//  Created by DarielChen https://github.com/DarielChen/DCLog
-//  Copyright © 2016年 DarielChen. All rights reserved.
-//
 
-#import "DCLogView.h"
 
-@interface DCLogView()
+#import "HTClassLogView.h"
+
+@interface HTClassLogView()
 
 @property (nonatomic, strong) UITextView *logTextView;
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
@@ -18,7 +12,7 @@
 
 @end
 
-@implementation DCLogView
+@implementation HTClassLogView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

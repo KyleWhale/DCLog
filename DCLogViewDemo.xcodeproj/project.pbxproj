@@ -13,9 +13,9 @@
 		15525A311E1699CD00C4099B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15525A2F1E1699CD00C4099B /* Main.storyboard */; };
 		15525A331E1699CD00C4099B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15525A321E1699CD00C4099B /* Assets.xcassets */; };
 		15525A361E1699CD00C4099B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15525A341E1699CD00C4099B /* LaunchScreen.storyboard */; };
-		15525A491E1B6F5D00C4099B /* DCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 15525A461E1B6F5D00C4099B /* DCLog.m */; };
-		15525A4A1E1B6F5D00C4099B /* DCLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15525A481E1B6F5D00C4099B /* DCLogView.m */; };
-		15B4A5EE1E1D2FC7008B4370 /* UIWindow+DCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4A5ED1E1D2FC7008B4370 /* UIWindow+DCLog.m */; };
+		15525A491E1B6F5D00C4099B /* HTClassLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 15525A461E1B6F5D00C4099B /* HTClassLog.m */; };
+		15525A4A1E1B6F5D00C4099B /* HTClassLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15525A481E1B6F5D00C4099B /* HTClassLogView.m */; };
+		15B4A5EE1E1D2FC7008B4370 /* UIWindow+HTClassLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4A5ED1E1D2FC7008B4370 /* UIWindow+HTClassLog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +29,12 @@
 		15525A321E1699CD00C4099B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15525A351E1699CD00C4099B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15525A371E1699CD00C4099B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15525A451E1B6F5D00C4099B /* DCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLog.h; sourceTree = "<group>"; };
-		15525A461E1B6F5D00C4099B /* DCLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCLog.m; sourceTree = "<group>"; };
-		15525A471E1B6F5D00C4099B /* DCLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCLogView.h; sourceTree = "<group>"; };
-		15525A481E1B6F5D00C4099B /* DCLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCLogView.m; sourceTree = "<group>"; };
-		15B4A5EC1E1D2FC7008B4370 /* UIWindow+DCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+DCLog.h"; sourceTree = "<group>"; };
-		15B4A5ED1E1D2FC7008B4370 /* UIWindow+DCLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+DCLog.m"; sourceTree = "<group>"; };
+		15525A451E1B6F5D00C4099B /* HTClassLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTClassLog.h; sourceTree = "<group>"; };
+		15525A461E1B6F5D00C4099B /* HTClassLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTClassLog.m; sourceTree = "<group>"; };
+		15525A471E1B6F5D00C4099B /* HTClassLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTClassLogView.h; sourceTree = "<group>"; };
+		15525A481E1B6F5D00C4099B /* HTClassLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTClassLogView.m; sourceTree = "<group>"; };
+		15B4A5EC1E1D2FC7008B4370 /* UIWindow+HTClassLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+HTClassLog.h"; sourceTree = "<group>"; };
+		15B4A5ED1E1D2FC7008B4370 /* UIWindow+HTClassLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HTClassLog.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 		15525A251E1699CD00C4099B /* DCLogViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				15525A441E1B6F5D00C4099B /* DCLog */,
+				15525A441E1B6F5D00C4099B /* Class */,
 				15525A291E1699CD00C4099B /* AppDelegate.h */,
 				15525A2A1E1699CD00C4099B /* AppDelegate.m */,
 				15525A2C1E1699CD00C4099B /* ViewController.h */,
@@ -89,17 +89,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		15525A441E1B6F5D00C4099B /* DCLog */ = {
+		15525A441E1B6F5D00C4099B /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				15525A451E1B6F5D00C4099B /* DCLog.h */,
-				15525A461E1B6F5D00C4099B /* DCLog.m */,
-				15525A471E1B6F5D00C4099B /* DCLogView.h */,
-				15525A481E1B6F5D00C4099B /* DCLogView.m */,
-				15B4A5EC1E1D2FC7008B4370 /* UIWindow+DCLog.h */,
-				15B4A5ED1E1D2FC7008B4370 /* UIWindow+DCLog.m */,
+				15525A451E1B6F5D00C4099B /* HTClassLog.h */,
+				15525A461E1B6F5D00C4099B /* HTClassLog.m */,
+				15525A471E1B6F5D00C4099B /* HTClassLogView.h */,
+				15525A481E1B6F5D00C4099B /* HTClassLogView.m */,
+				15B4A5EC1E1D2FC7008B4370 /* UIWindow+HTClassLog.h */,
+				15B4A5ED1E1D2FC7008B4370 /* UIWindow+HTClassLog.m */,
 			);
-			path = DCLog;
+			path = Class;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -133,7 +133,7 @@
 				TargetAttributes = {
 					15525A221E1699CD00C4099B = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = GFG94CPZ5N;
+						DevelopmentTeam = RJT79Q8VZW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,6 +143,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -175,10 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15525A2E1E1699CD00C4099B /* ViewController.m in Sources */,
-				15B4A5EE1E1D2FC7008B4370 /* UIWindow+DCLog.m in Sources */,
+				15B4A5EE1E1D2FC7008B4370 /* UIWindow+HTClassLog.m in Sources */,
 				15525A2B1E1699CD00C4099B /* AppDelegate.m in Sources */,
-				15525A4A1E1B6F5D00C4099B /* DCLogView.m in Sources */,
-				15525A491E1B6F5D00C4099B /* DCLog.m in Sources */,
+				15525A4A1E1B6F5D00C4099B /* HTClassLogView.m in Sources */,
+				15525A491E1B6F5D00C4099B /* HTClassLog.m in Sources */,
 				15525A281E1699CD00C4099B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,11 +298,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GFG94CPZ5N;
+				DEVELOPMENT_TEAM = RJT79Q8VZW;
 				INFOPLIST_FILE = DCLogViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.darielchen.DCLogViewDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hao.dianying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -310,11 +311,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GFG94CPZ5N;
+				DEVELOPMENT_TEAM = RJT79Q8VZW;
 				INFOPLIST_FILE = DCLogViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.darielchen.DCLogViewDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hao.dianying;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

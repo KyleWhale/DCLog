@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  DCLogViewDemo
+//  HTClassLogViewDemo
 //
 //  Created by DarielChen on 16/12/30.
 //  Copyright © 2016年 DarielChen. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "DCLog.h"
+#import "HTClassLog.h"
 
 
 @interface AppDelegate ()
@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [DCLog setLogViewEnabled:YES];
+    [HTClassLog setLogViewEnabled:YES];
     
     return YES;
 }

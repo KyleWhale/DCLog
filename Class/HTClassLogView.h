@@ -1,14 +1,7 @@
-//
-//  DCLogView.h
-//  DCLogViewDemo
-//
-//  Created by DarielChen https://github.com/DarielChen/DCLog
-//  Copyright © 2016年 DarielChen. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 
-@interface DCLogView : UIView
+@interface HTClassLogView : UIView
 
 - (void)updateLog:(NSString *)logText;
 
